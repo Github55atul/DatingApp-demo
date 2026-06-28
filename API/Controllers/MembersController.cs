@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class MembersController : ControllerBase
+   
+    public class MembersController : BaseApiController
     {
         // 1. Private field banyi jisme hum dependency store karenge
         private readonly AppDbContext _context;
@@ -30,6 +30,7 @@ namespace API.Controllers
             return members;
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Appuser>> Getmember(string id)
         {

@@ -1,0 +1,53 @@
+<div class="hero bg-base-200 min-h-screen">
+
+  @if (!registerMode()) {
+
+  <div class="hero-content text-center">
+    <div class="max-w-md">
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-24 mx-auto">
+
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M18 7.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6 10.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm12 9a6 6 0 0 0-12 0m12 0a5.97 5.97 0 0 0-3.75-5.565M18 19.5H6" />
+      </svg>
+
+      <h1 class="text-5xl font-bold mt-4">
+        Find your match
+      </h1>
+
+      <p class="py-6">
+        Come on in... all you need to do is sign up
+      </p>
+
+      <div class="flex justify-center gap-3">
+        <button
+          (click)="showRegister(true)"
+          class="btn btn-primary btn-lg">
+          Register
+        </button>
+
+        <button class="btn btn-info btn-lg">
+          Learn more
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  } @else {
+
+  <div class="text-2xl text-center flex justify-center">
+    <app-register (cancelRegister)="showRegister($event)" class="w-full"/>
+  </div>
+
+  }
+
+</div>
